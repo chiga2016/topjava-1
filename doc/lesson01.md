@@ -102,7 +102,7 @@
 
 - <a href="http://tomcat.apache.org/">Tomcat Home Page</a>
 - [Жизненный цикл сервлета. Для каждого сервлета создается только одна копия](https://metanit.com/java/javaee/4.8.php)
-- <a href="http://java-course.ru/student/book1/servlet/">Сервлеты</a>
+- [Сервлеты, Java servlet API. Пишем простое веб-приложение](https://javarush.ru/groups/posts/2529-chastjh-5-servletih-pishem-prostoe-veb-prilozhenie)
 - <a href="https://devcolibri.com/как-создать-servlet-полное-руководство/">Руководство: как создать servlet</a>
 - Томкат менеджер: [http://localhost:8080/manager](http://localhost:8080/manager)
   - в `TOMCAT_HOME\conf\tomcat-users.xml` нужно добавить 
