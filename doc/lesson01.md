@@ -131,6 +131,9 @@
 #### Apply 1_5_logging.patch
  
 **Установите переменную окружения на TOPJAVA_ROOT на корень проекта и перезапустите IDEA. Слеши в пути должны быть в стиле unix (/)**
+
+Проверить, видит ли Java вашу переменную можно через `System.getenv("TOPJAVA_ROOT")`
+
 - [Set environment for Win/Mac/Unix](https://chlee.co/how-to-setup-environment-variables-for-windows-mac-and-linux/)
 - [Set environment for UNIX (advanced)](https://askubuntu.com/a/849954)
 - Или простой вариант (не забудте добавить и в Run, и в Debug)
