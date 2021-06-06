@@ -115,6 +115,8 @@
 
 - Дополнительно:
   - Remote debug встречается много реже - приконнекчивание к уже запущенной JVM, которую, например, нельзя запустить из IDEA. Можно попробовать запустить catalina через `jpda start`, задеплоить туда war и уже после этого после приконнектиться через запуск `Tomcat Server -> Remote`
+![image](https://user-images.githubusercontent.com/13649199/120930503-2a5e2700-c6f6-11eb-81c4-f21de8efbb8f.png)
+
      - [Настройки Remote Debug в новой IDEA](https://github.com/JavaOPs/topjava/wiki/IDEA#remote-debug-в-новой-idea)
      - <a href="http://blog.trifork.com/2014/07/14/how-to-remotely-debug-application-running-on-tomcat-from-within-intellij-idea">Remotely debug on tomcat from IDEA</a>
   - [HTTP](https://developer.mozilla.org/ru/docs/Web/HTTP)
