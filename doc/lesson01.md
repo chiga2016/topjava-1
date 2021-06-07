@@ -232,8 +232,8 @@ JSF- sun-овский еще фреймворк, с которым я ни ра�
     ...
 ```
 
-  - <a href="http://java-course.ru/student/book1/servlet/">Интернет-приложения на JAVA</a>
-  - <a href="http://java-course.ru/student/book1/jsp/">JSP</a>
+  - <a href="https://java-course.ru/old/students/part7.html">Интернет-приложения на JAVA</a>
+  - <a href="https://java-course.ru/old/students/part8.html">JSP</a>
   - [Как создать Servlet? Полное руководство](https://devcolibri.com/как-создать-servlet-полное-руководство)
   - [JSTL для написания JSP страниц](https://devcolibri.com/jstl-для-написания-jsp-страниц/)
   - <a href="http://javatutor.net/articles/jstl-patterns-for-developing-web-application-1">JSTL: Шаблоны для разработки веб-приложений в java</a>
