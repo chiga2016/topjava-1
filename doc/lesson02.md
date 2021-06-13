@@ -204,10 +204,16 @@
   - 4.4: конвертацию в `MealTo` можно делать как в слое web, так и в service ([Mapping Entity->DTO: Controller or Service?](http://stackoverflow.com/questions/31644131))
   - 4.5: в `MealService` постараться сделать в каждом методе только одни запрос к `MealRepository`
   - 4.6 еще раз: не надо в названиях методов повторять названия класса (`Meal`).
+
+![image](https://user-images.githubusercontent.com/13649199/121820224-66ffc480-cc9a-11eb-8abb-d1015ec2cb79.png)
+
 - 5: включить классы еды в контекст Spring (добавить аннотации) и вызвать из `SpringMain` любой метод `MealRestController` (проверить что Spring все корректно заинжектил)
 
 ### Optional
 - 6: в `MealServlet` сделать инициализацию Spring, достать `MealRestController` из контекста и работать с едой через него (**как в `SpringMain`**). `pom.xml` НЕ менять, работаем со `spring-context`. Сервлет обращается к контролеру, контроллер вызывает сервис, сервис - репозиторий. Когда будем работать через Spring MVC, `MealServlet` удалим, останется только контроллер.
+
+![image](https://user-images.githubusercontent.com/13649199/121820239-71ba5980-cc9a-11eb-8c25-54df6f50f43c.png)
+
 - 7: добавить в `meals.jsp` и `MealServlet` фильтрацию еды по дате и по времени (см. [демо](http://topjava.herokuapp.com)). Сброс фильтра делать не надо (реализуем через ajax в HW8). ВНИМАНИЕ: в приложении фильтрация делается не по интервалу дата-время, а отдельно по датам и затем отдельно по времени.
 - 8: добавить выбор текущего залогиненного пользователя (имитация аутентификации, сделать Select с двумя элементами со значениями 1 и 2 в `index.html` и `SecurityUtil.setAuthUserId(userId)` в `UserServlet`). От выбора user или admin будет зависеть отображение еды: user-а или admin-а.
 Настоящая аутентификация будет через Spring Security позже.
