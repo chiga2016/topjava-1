@@ -155,6 +155,9 @@ GRANT ALL PRIVILEGES ON DATABASE topjava TO "user";
 > - в классе `JdbcTemplate` есть настройки (`queryTimeout/ skipResultsProcessing/ skipUndeclaredResults`) уровня приложения (если они будут меняться, то, скорее всего, везде в приложении).
   Мы можем дополнительно сконфигурировать его в `spring-db.xml` и использовать в конструкторах `NamedParameterJdbcTemplate` и в `SimpleJdbcInsert` вместо `dataSource`.
 
+- Дополнительно:
+  - [alishev: Spring Framework. Урок 27: JdbcTemplate](https://www.youtube.com/watch?v=YozbZQ7PxtQ&list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ&index=27&ab_channel=alishevalishev)
+
 Если IDEA не видит таблицы/поля, попробуйте поднять флажок `Introspect using JDBC metadata` (у меня все без него работает):
 
 ![image](https://user-images.githubusercontent.com/13649199/96332049-9f4af680-106a-11eb-996e-61352d14495a.png)
