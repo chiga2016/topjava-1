@@ -14,7 +14,9 @@ insert into meals ( user_id, date_time, description, calories)
 values (100000, to_date('20.06.2021','dd.mm.yyyy'), 'zavtrak', 500 ),
        (100000, to_date('20.06.2021','dd.mm.yyyy'), 'obed', 1500 ),
        (100000, to_date('20.06.2021','dd.mm.yyyy'), 'ujin', 200 ),
-       (100001, to_date('21.06.2021','dd.mm.yyyy'), 'obed', 500 ),
+       (100001, to_date('19.06.2021','dd.mm.yyyy'), 'obed', 500 ),
+       (100001, to_date('20.06.2021','dd.mm.yyyy'), 'zavtrak', 500 ),
+       (100001, to_date('21.06.2021','dd.mm.yyyy'), 'ugin', 1500 ),
        (100000, to_date('21.06.2021','dd.mm.yyyy'), 'zavtrak', 800 ),
        (100000, to_date('21.06.2021','dd.mm.yyyy'), 'obed', 1800 ),
        (100000, to_date('21.06.2021','dd.mm.yyyy'), 'ujin', 900 );

@@ -14,6 +14,7 @@ import ru.javawebinar.topjava.repository.MealRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class JdbcMealRepository implements MealRepository {
@@ -53,14 +54,18 @@ public class JdbcMealRepository implements MealRepository {
     @Override
     public List<Meal> getAll(int userId) {
         System.out.println("List<Meal> getAll");
-        return jdbcTemplate.query("SELECT * FROM meals ORDER BY id", ROW_MAPPER);
+        return jdbcTemplate.query("SELECT * FROM meals m where m.user_id=? ORDER BY id", ROW_MAPPER,userId);
         //return null;
     }
 
     @Override
     public List<Meal> getBetweenHalfOpen(LocalDateTime startDateTime, LocalDateTime endDateTime, int userId) {
         System.out.println("List<Meal> getBetweenHalfOpen");
-        return jdbcTemplate.query("SELECT * FROM meals ORDER BY id", ROW_MAPPER);
+        List<Meal> mealList = jdbcTemplate.query("SELECT * FROM meals m where m.user_id=? ORDER BY id", ROW_MAPPER, userId);
+        return mealList.stream()
+                .filter(p->p.getDateTime().isBefore(endDateTime))
+                .filter(p->p.getDateTime().isAfter(startDateTime))
+                .collect(Collectors.toList());
         //return null;
     }
 
@@ -71,14 +76,14 @@ public class JdbcMealRepository implements MealRepository {
                 .addValue("id", meal.getId())
                 .addValue("description", meal.getDescription())
                 .addValue("calories", meal.getCalories())
-                .addValue("dateTime", meal.getDateTime());
-        //.addValue("userId", meal.getUserId());
+                .addValue("dateTime", meal.getDateTime())
+        .addValue("userId", userId);
 
         if (meal.isNew()) {
             Number newKey = insertMeal.executeAndReturnKey(map);
             meal.setId(newKey.intValue());
         } else if (namedParameterJdbcTemplate.update(
-                "UPDATE meals SET description=:description, calories=:calories, date_time=:dateTime " +
+                "UPDATE meals SET description=:description, calories=:calories, date_time=:dateTime, user_id=:userId " +
                         " WHERE id=:id", map) == 0) {
             return null;
         }
