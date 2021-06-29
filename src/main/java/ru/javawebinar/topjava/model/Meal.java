@@ -1,12 +1,24 @@
 package ru.javawebinar.topjava.model;
 
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+@NamedQueries({
+        @NamedQuery(name = Meal.DELETE, query = "DELETE FROM Meal u WHERE u.id=:id and u.user.id=:user_id "),
+        @NamedQuery(name = Meal.GET, query =  "SELECT u FROM Meal u JOIN FETCH u.user   WHERE u.id=:id and u.user.id=:user_id"),
+        @NamedQuery(name = Meal.ALL_SORTED, query = "SELECT u FROM Meal u JOIN FETCH u.user WHERE  u.user.id=:user_id ORDER BY u.dateTime"),
+})
+
+@Entity
+@Table(name = "meals")
 public class Meal extends AbstractBaseEntity {
+
+    public static final String DELETE = "Meal.delete";
+    public static final String GET = "Meal.get";
+    public static final String ALL_SORTED = "Meal.all_sorted";
+
     private LocalDateTime dateTime;
 
     private String description;
@@ -14,6 +26,7 @@ public class Meal extends AbstractBaseEntity {
     private int calories;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private User user;
 
     public Meal() {
@@ -63,6 +76,8 @@ public class Meal extends AbstractBaseEntity {
     }
 
     public User getUser() {
+
+        System.out.println("return user");
         return user;
     }
 
