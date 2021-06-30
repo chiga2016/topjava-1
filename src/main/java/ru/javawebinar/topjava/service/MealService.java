@@ -40,6 +40,7 @@ public class MealService {
 
     public void update(Meal meal, int userId) {
         Assert.notNull(meal, "meal must not be null");
+        System.out.println("UPDATE " + meal);
         checkNotFoundWithId(repository.save(meal, userId), meal.id());
     }
 

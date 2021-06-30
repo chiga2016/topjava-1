@@ -6,9 +6,14 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @NamedQueries({
+//        @NamedQuery(name = Meal.DELETE, query = "DELETE FROM Meal u WHERE u.id=:id and u.user.id=:user_id "),
+//        @NamedQuery(name = Meal.GET, query =  "SELECT u FROM Meal u JOIN FETCH u.user   WHERE u.id=:id and u.user.id=:user_id"),
+//        @NamedQuery(name = Meal.ALL_SORTED, query = "SELECT u FROM Meal u JOIN FETCH u.user WHERE  u.user.id=:user_id ORDER BY u.dateTime"),
+
         @NamedQuery(name = Meal.DELETE, query = "DELETE FROM Meal u WHERE u.id=:id and u.user.id=:user_id "),
-        @NamedQuery(name = Meal.GET, query =  "SELECT u FROM Meal u JOIN FETCH u.user   WHERE u.id=:id and u.user.id=:user_id"),
-        @NamedQuery(name = Meal.ALL_SORTED, query = "SELECT u FROM Meal u JOIN FETCH u.user WHERE  u.user.id=:user_id ORDER BY u.dateTime"),
+        @NamedQuery(name = Meal.GET, query =  "SELECT u FROM Meal u WHERE  u.user.id=:user_id"),
+        @NamedQuery(name = Meal.GET_BY_ID, query =  "SELECT u FROM Meal u WHERE u.id=:id and u.user.id=:user_id"),
+        @NamedQuery(name = Meal.ALL_SORTED, query = "SELECT u FROM Meal u WHERE u.user.id=:user_id ORDER BY u.dateTime"),
 })
 
 @Entity
@@ -17,15 +22,16 @@ public class Meal extends AbstractBaseEntity {
 
     public static final String DELETE = "Meal.delete";
     public static final String GET = "Meal.get";
+    public static final String GET_BY_ID = "Meal.get_by_id";
     public static final String ALL_SORTED = "Meal.all_sorted";
-
+@Column(name = "date_time")
     private LocalDateTime dateTime;
-
+@Column(name = "description")
     private String description;
-
+@Column(name = "calories")
     private int calories;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(/*fetch = FetchType.EAGER, */cascade = {CascadeType.MERGE})
     @JoinColumn(name="user_id")
     private User user;
 
